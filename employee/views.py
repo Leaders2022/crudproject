@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect, render
+
+# Create your views here.
 from employee.forms import EmployeeForm
 from employee.models import Employee
 
@@ -13,9 +15,9 @@ def emp(request):
                 return redirect('/show')
             except:
                 pass
-        else:
-            form = EmployeeForm()
-            return render(request, 'index.html', {'form': form})
+    else:
+        form = EmployeeForm()
+    return render(request, 'index.html', {'form': form})
 
 
 def show(request):
